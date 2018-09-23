@@ -2,8 +2,8 @@ var Videos = Backbone.Collection.extend({
 
   model: Video,
 
-  initialize: function() {
+  initialize: function(options) {
+    console.log('Video\'s options', options);
 
-    console.dir(window.exampleVideoData);
   },
 });
