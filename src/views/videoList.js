@@ -1,12 +1,10 @@
 var VideoListView = Backbone.View.extend({
 
-  el: '.list',
+  // el: '.list',
 
-  initialize: function(options) {
-    console.log('options', options);
+  // initialize: function(options) {
 
-    this.render();
-  },
+  // },
 
   render: function() {
     this.$el.children().detach();
