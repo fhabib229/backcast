@@ -12,12 +12,18 @@ var VideoListView = Backbone.View.extend({
   render: function() {
     this.$el.children().detach();
     this.$el.html(this.template());
+    console.log('Children',$('.video-list').children());
+    var videoListChildren = $('.video-list').children();
+    // for (var i = 0; i < videoListChildren.length; i++) {
+    //   console.log(typeof videoListChildren[i]);
+    //   $(videoListChildren[i]).replaceWith(this.renderVideo(this.collection[i]));
+    // }
     this.collection.forEach(this.renderVideo, this);
     return this;
   },
 
   renderVideo: function(video) {
-    var videoListEntryView = new VideoListEntryView({el: $('.video-list'), model: video});
+    var videoListEntryView = new VideoListEntryView({model: video});
     this.$el.append(videoListEntryView.render());
   },
 

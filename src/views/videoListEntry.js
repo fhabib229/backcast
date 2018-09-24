@@ -13,6 +13,7 @@ var VideoListEntryView = Backbone.View.extend({
 
   onClickTitle: function() {
     this.model.select();
+    new VideoPlayerView({el: $('.player')}).render();
   },
 
   render: function() {
