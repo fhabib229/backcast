@@ -2,7 +2,7 @@ var VideoPlayerView = Backbone.View.extend({
 
   initialize: function() {
     //When a video is selected in the collection, re-render video player view
-    this.listenTo();
+    this.listenTo(this.collection, 'select', this.render);
   },
 
   render: function() {
