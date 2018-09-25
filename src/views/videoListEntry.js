@@ -1,19 +1,17 @@
 var VideoListEntryView = Backbone.View.extend({
-  // we added initialize
-  //el: '.video-list-entry media',
 
   initialize: function() {
     this.on('change', this.render, this);
-    //Call select on video model when title is click
   },
 
   events: {
-    'click': 'onClickTitle'
+    'click .video-list-entry-title': 'onClickTitle'
   },
 
   onClickTitle: function() {
+    console.log('yay');
     this.model.select();
-    new VideoPlayerView({el: $('.player')}).render();
+    new VideoPlayerView({el: $('.player'), model: this.model}).render();
   },
 
   render: function() {
