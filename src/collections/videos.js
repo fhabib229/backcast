@@ -1,23 +1,27 @@
 var Videos = Backbone.Collection.extend({
-  // url: '/videos',
+  url: 'https://www.googleapis.com/youtube/v3/search',
 
   search: function(string) {
-    $.ajax({
-      query: string, //FIX ME
-      type: 'GET',
-      contentType: 'application/json',
-      success: function(data) {
-        console.log('Message received');
-        return data;
+    this.fetch({
+      data: {
+        q: string,
+        maxResults: 5,
+        key: window.YOUTUBE_API_KEY,
+        type: 'video',
+        videoEmbeddable: true
+      },
+      success: function() {
+        console.log('Successfully received data!');
       },
       error: function(data) {
-        console.log('Failed to receive message: ', data);
+        console.log('Failed to receive,',data);
       }
     });
   },
+
   model: Video,
 
   parse: function(data) {
-    return data;
+    return data.items;
   }
 });
